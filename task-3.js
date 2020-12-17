@@ -16,17 +16,24 @@ const images = [
   },
 ];
 
-const galleryList = document.querySelector('#gallery');
-galleryList.classList.add('gallery');
+const galleryListRef = document.querySelector('#gallery');
+galleryListRef.classList.add('gallery');
 const createGallery = images.map(image => {
-  const galleryItem = document.createElement('li');
-  galleryItem.classList.add('gallery__item');
-  const galleryImage = document.createElement('img');
-  galleryImage.setAttribute('src', image.url);
-  galleryImage.setAttribute('alt', image.alt);
-  galleryImage.setAttribute('width', 370);
-  galleryItem.appendChild(galleryImage);
-  galleryList.appendChild(galleryItem);
-  return galleryList;
+  galleryListRef.insertAdjacentHTML(
+    'beforeend',
+    `<li><img src="${image.url}" alt="${image.alt}" width="370"<li>`,
+  );
+  return galleryListRef;
 });
-console.log(galleryList);
+
+// const createGallery = images.map(image => {
+//   const galleryItem = document.createElement('li');
+//   galleryItem.classList.add('gallery__item');
+//   const galleryImage = document.createElement('img');
+//   galleryImage.setAttribute('src', image.url);
+//   galleryImage.setAttribute('alt', image.alt);
+//   galleryImage.setAttribute('width', 370);
+//   galleryItem.appendChild(galleryImage);
+//   galleryList.appendChild(galleryItem);
+//   return galleryList;
+// });
