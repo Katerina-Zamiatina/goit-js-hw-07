@@ -19,14 +19,17 @@ const images = [
 const galleryListRef = document.querySelector('#gallery');
 galleryListRef.classList.add('gallery');
 
-const createGallery = images.map(image => {
-  const galleryItem = `<li><img src="${image.url}" alt="${image.alt}" width="370"<li>`;
-  // galleryItem.join(' ');
-  return galleryItem;
-});
+// const createGallery = images.map(image => {
+//   const galleryItem = `<li><img src="${image.url}" alt="${image.alt}" width="370"<li>`;
+//   // galleryItem.join(' ');
+//   return galleryItem;
+// });
+// galleryListRef.insertAdjacentHTML('beforeend', `${createGallery.join(' ')}`);
+
+const createGallery = images.map(
+  image => `<li><img src="${image.url}" alt="${image.alt}" width="370"<li>`,
+);
 galleryListRef.insertAdjacentHTML('beforeend', `${createGallery.join(' ')}`);
-
-
 
 // const createGallery = images.map(image => {
 //   const galleryItem = document.createElement('li');
